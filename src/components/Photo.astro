@@ -1,0 +1,6 @@
+---
+interface Props { src: string; alt: string; class?: string; eager?: boolean; sizes?: string; }
+const {src,alt,class:className,eager=false,sizes='(max-width: 600px) 50vw, 33vw'}=Astro.props;
+const small=src.replace('.webp','-small.webp');
+---
+<img class={className} src={'/images/'+src} srcset={'/images/'+small+' 650w, /images/'+src+' 1500w'} sizes={sizes} alt={alt} loading={eager?'eager':'lazy'} fetchpriority={eager?'high':'auto'} decoding="async" width="1000" height="1250" />

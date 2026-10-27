@@ -1,0 +1,1 @@
+import { defineConfig } from 'astro/config'; export default defineConfig({ site: 'https://bharani-studio-stories.syedcode07.chatgpt.site', output: 'static', devToolbar: { enabled: false } });

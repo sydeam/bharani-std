@@ -1,0 +1,120 @@
+---
+import '../styles/global.css';
+import Photo from '../components/Photo.astro';
+import Icon from '../components/Icon.astro';
+const whatsapp='https://wa.me/919908996227?text='+encodeURIComponent("Hi Bharani Studio! I'd love to enquire about a photoshoot.");
+const instagram='https://instagram.com/bharanistudionellore';
+const gallery=[
+ {src:'wedding-2-crop.webp',alt:'A couple sharing a quiet moment, dressed in traditional wedding attire',category:'Weddings',title:'The beginning of forever',shape:'portrait'},
+ {src:'baby-3.webp',alt:'A little girl in a tulle dress raising her arms on a green lawn',category:'Baby',title:'Little moments. Big feelings.',shape:'square'},
+ {src:'wedding-10-crop.webp',alt:'A groom kissing his smiling bride on the forehead',category:'Weddings',title:'Just the two of you',shape:'square'},
+ {src:'wedding-1.webp',alt:'A bride in a red sari photographed in a softly lit studio',category:'Weddings',title:'A moment, all her own',shape:'portrait'},
+ {src:'maternity-2-crop.webp',alt:'Expectant parents sharing a warm moment together at home',category:'Maternity',title:'Before we meet you',shape:'portrait'},
+ {src:'wedding-7.webp',alt:'A bride looking back with a smile during her wedding rituals',category:'Weddings',title:'All the in-between moments',shape:'square'}
+];
+const reviews=[
+ "They captured so many beautiful moments without disturbing us. Some of our favourite photos were taken when we didn't even know they were clicking!",
+ "We loved how they took photos of everyone in our family, especially our parents and grandparents. These pictures are very special to us.",
+ "We were a little shy in front of the camera, but the team made us feel very comfortable. Our wedding couple photos came out so beautiful, just how we wanted!",
+ "We received our photos and videos on time, and everything came out really well. Watching them made us feel like we were enjoying our wedding all over again!"
+];
+const services=[
+ {title:'Wedding Photography & Cinematography',copy:"It's your big day. You enjoy it, we'll take care of capturing it.",extra:'From the quiet anticipation to the last dance, photographs and films that feel like you.'},
+ {title:'Baby Photography',copy:"They grow up so fast. Let's make sure you've got plenty of pictures to look back on.",extra:'Tiny hands, first smiles, and the little personality you never want to forget.'},
+ {title:'Corporate Photography',copy:"Good photographs make a difference to how people see your business. We're here to help with that.",extra:'Tell us about your team, your brand, or your next event.'},
+ {title:'Something Else?',copy:"Tell us what you have in mind. We're always happy to talk about a shoot.",extra:'Maternity, portraits, celebrations, or a story entirely your own.'}
+];
+---
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="theme-color" content="#656e59"/>
+  <title>Bharani Studio | Photography & Cinematography in Nellore</title>
+  <meta name="description" content="You live the moment. We'll make sure it stays. Wedding, baby, maternity and corporate photography by Bharani Studio, Nellore. Since 1985. Let's plan your shoot."/>
+  <link rel="canonical" href={Astro.site}/>
+  <link rel="icon" type="image/png" href="/favicon.png"/>
+  <link rel="preload" href="/fonts/cormorant-regular.ttf" as="font" type="font/ttf" crossorigin/>
+  <link rel="preload" href="/fonts/manrope-regular.ttf" as="font" type="font/ttf" crossorigin/>
+  <meta property="og:title" content="Bharani Studio — Your moments, beautifully kept."/>
+  <meta property="og:description" content="Photography & cinematography, rooted in Nellore since 1985. Weddings, little milestones, and everything in between."/>
+  <meta property="og:type" content="website"/><meta property="og:url" content={Astro.site}/>
+  <meta property="og:image" content={new URL('/images/wedding-2-crop.webp',Astro.site).href}/>
+  <meta name="twitter:card" content="summary_large_image"/>
+  <script type="application/ld+json" set:html={JSON.stringify({'@context':'https://schema.org','@type':'ProfessionalService',name:'Bharani Studio',description:'Photography & Cinematography · Since 1985',foundingDate:'1985',telephone:'+919908996227',url:Astro.site?.href,image:new URL('/images/wedding-2-crop.webp',Astro.site).href,address:{'@type':'PostalAddress',addressLocality:'Nellore',addressRegion:'Andhra Pradesh',addressCountry:'IN'},areaServed:['Andhra Pradesh','Telangana','Chennai'],sameAs:[instagram]})}/>
+ </head>
+ <body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header class="site-header">
+   <div class="trust-strip"><span class="tiny-spark" aria-hidden="true">✦</span> Trusted by <strong>500+ happy couples</strong><span class="tiny-spark" aria-hidden="true">✦</span></div>
+   <div class="nav-wrap container">
+    <a class="brand" href="#top" aria-label="Bharani Studio home">
+     <img src="/images/brand-mark.webp" width="39" height="48" alt=""/>
+     <span class="brand-type">Bharani Studio<span>PHOTOGRAPHY & CINEMATOGRAPHY</span></span>
+    </a>
+    <nav class="desktop-nav" aria-label="Main navigation"><a href="#work">Our work</a><a href="#about">About</a><a href="#contact">Contact</a></nav>
+    <div class="nav-actions"><a class="button button-small button-outline" href="#contact">Let's talk <Icon name="diagonal"/></a><button class="menu-toggle" aria-label="Open navigation" aria-expanded="false" aria-controls="mobile-menu"><Icon name="menu"/></button></div>
+   </div>
+   <nav id="mobile-menu" class="mobile-menu" aria-label="Mobile navigation" hidden><a href="#work">Our work</a><a href="#services">What we do</a><a href="#about">Our story</a><a href="#contact">Get in touch</a></nav>
+  </header>
+  <main id="main">
+   <section class="hero" id="top" aria-labelledby="hero-title">
+    <div class="hero-inner container">
+     <div class="hero-copy">
+      <p class="eyebrow light"><span class="line"></span> NELLORE · EST. 1985</p>
+      <h1 id="hero-title">You live <br/>the <em>moment.</em><br/><span class="hero-second">We'll make sure <br/>it stays.</span></h1>
+      <p class="hero-description">The big celebrations. The little glances. <br/>The moments that become your everything.</p>
+      <div class="hero-actions"><a class="button button-cream" href="#work">Explore our work <Icon name="arrow"/></a><a class="text-link light" href="#contact">Get in touch <Icon name="diagonal"/></a></div>
+      <div class="hero-footnote"><span class="mini-aperture" aria-hidden="true">✳</span><span>PHOTOGRAPHS THAT FEEL LIKE YOU.</span></div>
+     </div>
+     <div class="hero-visual">
+      <div class="hero-photo"><Photo src="wedding-2-crop.webp" alt="A newly married couple sharing a quiet moment together, photographed by Bharani Studio" eager sizes="(max-width: 700px) 100vw, 50vw"/></div>
+      <div class="photo-note"><span>A little love.<br/>A lifetime of memories.</span><svg viewBox="0 0 80 45" aria-hidden="true"><path d="M3 10Q40 55 72 9M59 12l15-5-4 17" fill="none" stroke="currentColor" stroke-width="1.2"/></svg></div>
+      <div class="hero-stamp" aria-label="Stories kept since 1985"><span>STORIES KEPT</span><strong>1985</strong><span>MOMENTS LIVED</span></div>
+      <span class="vertical-caption">BHARANI STUDIO / LOVE, IN EVERY FRAME</span>
+     </div>
+    </div>
+   </section>
+   <div class="intro-ribbon"><span>Real people.</span><i aria-hidden="true">✦</i><span>Honest emotions.</span><i aria-hidden="true">✦</i><span>Beautiful memories.</span></div>
+
+   <section id="work" class="section portfolio container" aria-labelledby="work-title">
+    <div class="section-heading"><div><p class="eyebrow">01 / OUR WORK</p><h2 id="work-title">Come see what<br/>we've been <em>up to.</em></h2></div><p class="section-aside">A few moments we've had<br/>the joy of being part of.</p></div>
+    <div class="portfolio-tools"><div class="filters" role="group" aria-label="Filter photographs">{['All moments','Weddings','Baby','Maternity','Corporate'].map((name,i)=><button class:list={['filter',{active:i===0}]} data-filter={i===0?'all':name} aria-pressed={i===0?'true':'false'}>{name}</button>)}</div><span class="gallery-hint">A closer look <Icon name="plus"/></span></div>
+    <div class="gallery" id="gallery">{gallery.map((item,i)=><button class:list={['gallery-item',item.shape]} data-category={item.category} data-image={item.src} data-caption={item.title} aria-label={'Enlarge photo: '+item.alt}><div class="gallery-image"><Photo src={item.src} alt={item.alt}/><span class="image-expand"><Icon name="diagonal"/></span></div><div class="gallery-caption"><span>{item.title}</span><span>{String(i+1).padStart(2,'0')}</span></div></button>)}</div>
+    <div class="gallery-empty" hidden><span class="empty-flower" aria-hidden="true">✳</span><h3>Your business, in its best light.</h3><p>Tell us about your team or event. We'll share relevant work and help you plan your shoot.</p><a class="button button-sage" href={whatsapp} target="_blank" rel="noopener noreferrer" data-enquiry="corporate">Ask about corporate shoots <Icon name="arrow"/></a></div>
+    <p class="sr-only" id="gallery-status" role="status" aria-live="polite">Showing all 6 photographs</p>
+    <div class="portfolio-bottom"><p>There's a story waiting in your everyday.</p><a class="text-link" href={instagram} target="_blank" rel="noopener noreferrer">More moments on Instagram <Icon name="diagonal"/></a></div>
+   </section>
+
+   <section class="testimonials section" aria-labelledby="reviews-title">
+    <div class="container testimonial-layout"><div class="review-intro"><p class="eyebrow">KIND WORDS</p><h2 id="reviews-title">Clients like<br/><em>you say.</em></h2><p>What stays with us?<br/>Knowing it meant something to you.</p></div>
+     <div class="review-content"><span class="quote-mark" aria-hidden="true">“</span><div class="review-slides" aria-live="polite">{reviews.map((quote,i)=><figure class="review-slide" hidden={i!==0}><blockquote>{quote}</blockquote><figcaption><span class="caption-line"></span> A BHARANI STUDIO WEDDING CLIENT</figcaption></figure>)}</div><div class="review-controls"><div class="review-dots" role="group" aria-label="Choose testimonial">{reviews.map((_,i)=><button data-review={i} aria-label={'Read testimonial '+(i+1)} aria-pressed={i===0?'true':'false'} class:list={['review-dot',{active:i===0}]}><span></span></button>)}</div><div class="review-arrows"><button id="review-prev" class="round-button" aria-label="Previous testimonial"><Icon name="arrow"/></button><button id="review-next" class="round-button" aria-label="Next testimonial"><Icon name="arrow"/></button></div></div></div>
+    </div>
+   </section>
+
+   <section class="section services container" id="services" aria-labelledby="services-title">
+    <div class="section-heading"><div><p class="eyebrow">02 / WHAT WE DO</p><h2 id="services-title">What are we<br/><em>photographing?</em></h2></div><p class="section-aside">Every chapter deserves<br/>a little space in the album.</p></div>
+    <div class="service-layout"><div class="service-photo"><Photo src="wedding-10-crop.webp" alt="A joyful bride and groom sharing an affectionate moment" sizes="(max-width: 700px) 100vw, 40vw"/><span>For the moments you want to keep.</span></div><div class="service-list">{services.map((service,i)=><details class="service" open={i===0}><summary><span class="service-number">0{i+1}</span><h3>{service.title}</h3><span class="service-toggle"><Icon name="plus"/></span></summary><div class="service-body"><p>{service.copy}</p><p class="service-extra">{service.extra}</p><a class="text-link" href={'#contact'} data-service={i===0?'Wedding':i===1?'Baby':i===2?'Corporate':'Something else'}>Let's plan your shoot <Icon name="diagonal"/></a></div></details>)}</div></div>
+   </section>
+
+   <section class="about section" id="about" aria-labelledby="about-title"><div class="container about-layout">
+    <div class="about-images"><Photo class="about-main" src="wedding-4.webp" alt="A bride in a red sari framed by coconut palms" sizes="(max-width: 700px) 80vw, 38vw"/><div class="about-inset"><Photo src="wedding-3.webp" alt="A smiling bride during her traditional wedding ceremony" sizes="(max-width: 700px) 35vw, 18vw"/></div><div class="since-label">A part of your stories<span>since 1985.</span></div></div>
+    <div class="about-copy"><p class="eyebrow light">03 / ABOUT US</p><h2 id="about-title">A little about<br/><em>Bharani Studio.</em></h2><p class="about-lead">Old roots. <br/>A fresh way of seeing.</p><p>We've been around in Nellore since 1985, so photography has been a part of our story for quite some time.</p><p>Today, we're a young team that enjoys being behind the camera just as much as getting to know the people in front of it.</p><p>We love what we do, and we want you to feel comfortable being yourself while we do it.</p><a class="text-link light" href="#contact">We'd love to know your story <Icon name="diagonal"/></a></div>
+   </div></section>
+
+   <section class="location section container" aria-labelledby="location-title"><div class="location-heading"><p class="eyebrow">WHERE WE WORK</p><span class="location-symbol" aria-hidden="true"><Icon name="pin"/></span><h2 id="location-title">Rooted in Nellore.<br/><em>Ready to go where your story goes.</em></h2><p>We're based in Nellore, but we travel too. We take up shoots across Andhra Pradesh, Telangana, and Chennai. So even if you're not in Nellore, feel free to reach out.</p></div><div class="locations"><span>Nellore <small>OUR HOME</small></span><span>Andhra Pradesh</span><span>Telangana</span><span>Chennai</span></div></section>
+
+   <section class="contact section" id="contact" aria-labelledby="contact-title"><div class="container contact-layout">
+    <div class="contact-copy"><p class="eyebrow">LET'S MAKE SOME MEMORIES</p><h2 id="contact-title">Have something<br/><em>coming up?</em></h2><p>Tell us what you're planning and when.<br/>We'll take it from there.</p><div class="contact-links"><a href={whatsapp} target="_blank" rel="noopener noreferrer" data-enquiry="whatsapp-direct"><span class="contact-icon"><Icon name="chat"/></span><span><small>A LITTLE HELLO GOES A LONG WAY</small>Chat on WhatsApp</span><Icon name="diagonal"/></a><a href="tel:+919908996227" data-enquiry="phone"><span class="contact-icon"><Icon name="phone"/></span><span><small>MORE OF A PHONE PERSON?</small>+91 99089 96227</span><Icon name="diagonal"/></a></div><p class="contact-note"><span aria-hidden="true">✳</span> Your story. Our lens. Something beautiful.</p></div>
+    <form id="enquiry-form" class="enquiry-form"><h3>Tell us a little about your plans.</h3><p class="form-intro">A few details to get the conversation started.</p><div class="form-row"><div class="field"><label for="name">Your name <span>*</span></label><input id="name" name="name" autocomplete="name" placeholder="What should we call you?" maxlength="80" required/></div><div class="field"><label for="phone">Phone number <span>*</span></label><input id="phone" name="phone" type="tel" autocomplete="tel" inputmode="tel" placeholder="+91" maxlength="20" required pattern="[+0-9() .\-]{7,20}" aria-describedby="phone-help"/><span id="phone-help" class="sr-only">Enter a phone number with 7 to 20 characters.</span></div></div><div class="form-row"><div class="field"><label for="occasion">What's the occasion? <span>*</span></label><select id="occasion" name="occasion" required><option value="" disabled selected>Select your shoot</option><option>Wedding</option><option>Baby</option><option>Maternity</option><option>Corporate</option><option>Something else</option></select></div><div class="field"><label for="date">When is it? <span class="optional">(optional)</span></label><input id="date" name="date" type="date"/></div></div><div class="field"><label for="message">Anything you'd like us to know? <span class="optional">(optional)</span></label><textarea id="message" name="message" rows="3" maxlength="1200" placeholder="The location, what you're imagining, or just a hello…"></textarea></div><button class="button button-sage form-submit" type="submit">Let's talk on WhatsApp <Icon name="chat"/></button><p class="form-note"><Icon name="check"/> Opens WhatsApp with your details. You choose when to send.</p><p id="form-status" class="form-status" role="status" aria-live="polite"></p><noscript><p>Please <a href={whatsapp}>chat with us directly on WhatsApp</a> or call +91 99089 96227.</p></noscript></form>
+   </div></section>
+
+   <section class="instagram-strip" aria-label="More photographs from Bharani Studio">{['wedding-6-crop.webp','baby-3.webp','wedding-5-crop.webp','maternity-2-crop.webp','wedding-3.webp'].map(src=><a href={instagram} target="_blank" rel="noopener noreferrer" aria-label="Visit Bharani Studio on Instagram"><Photo src={src} alt="" sizes="20vw"/><span><Icon name="diagonal"/></span></a>)}</section>
+  </main>
+  <footer class="site-footer"><div class="container"><div class="footer-top"><div><a class="footer-brand" href="#top">Bharani <em>Studio.</em></a><p>Photography & Cinematography · Since 1985<br/>Nellore, Andhra Pradesh</p></div><div class="footer-connect"><p>Every beautiful story starts with a hello.</p><a class="text-link light" href={instagram} target="_blank" rel="noopener noreferrer">Instagram <Icon name="diagonal"/></a><a class="text-link light" href={whatsapp} target="_blank" rel="noopener noreferrer" data-enquiry="footer-whatsapp">WhatsApp <Icon name="diagonal"/></a><a class="text-link light" href="#contact">Contact <Icon name="diagonal"/></a></div></div><div class="footer-bottom"><span>© {new Date().getFullYear()} Bharani Studio. All moments reserved.</span><a href="https://www.google.com/maps/search/?api=1&query=Bharani+Studio+Nellore" target="_blank" rel="noopener noreferrer"><Icon name="pin"/> Find us on Google Maps <Icon name="diagonal"/></a><button class="privacy-trigger" type="button">Privacy</button></div></div></footer>
+  <div class="mobile-contact"><a href="tel:+919908996227" data-enquiry="mobile-phone"><Icon name="phone"/> Call us</a><a href={whatsapp} target="_blank" rel="noopener noreferrer" data-enquiry="mobile-whatsapp"><Icon name="chat"/> Let's talk on WhatsApp <Icon name="diagonal"/></a></div>
+  <dialog id="lightbox" class="lightbox" aria-label="Photograph viewer"><button class="lightbox-close round-button" aria-label="Close photograph"><Icon name="close"/></button><div class="lightbox-stage"><button id="lightbox-prev" class="round-button" aria-label="Previous photograph"><Icon name="arrow"/></button><img id="lightbox-image" src="/images/wedding-2-crop.webp" alt=""/><button id="lightbox-next" class="round-button" aria-label="Next photograph"><Icon name="arrow"/></button></div><div class="lightbox-caption"><span id="lightbox-title"></span><span id="lightbox-count"></span></div></dialog>
+  <dialog id="privacy" class="privacy-dialog" aria-labelledby="privacy-title"><button class="privacy-close round-button" aria-label="Close privacy information"><Icon name="close"/></button><p class="eyebrow">YOUR INFORMATION</p><h2 id="privacy-title">A little privacy note.</h2><p>The enquiry form prepares a message on your device and opens WhatsApp. Your details are shared with Bharani Studio only when you send that message through WhatsApp.</p><p>This page does not submit your form to a database. Campaign parameters from a link may be kept in your browser for this session to understand where an enquiry started. No third-party advertising or analytics scripts are enabled on this version.</p><p>WhatsApp, Instagram and Google Maps have their own privacy policies. For questions about details you share with the studio, call <a href="tel:+919908996227">+91 99089 96227</a>.</p></dialog>
+  <script src="../scripts/main.ts"></script>
+ </body>
+</html>
