@@ -19,9 +19,8 @@ for(const width of [320,390,768,1440]){
  assert.deepEqual(broken,[],'Broken photos at '+width);
 }
 await page.setViewportSize({width:390,height:844});
-await page.getByRole('button',{name:'Open navigation'}).click();
-await page.locator('#mobile-menu').getByRole('link',{name:'Our work'}).click();
-assert.equal(await page.locator('#mobile-menu').isVisible(),false);
+assert.equal(await page.locator('.menu-toggle').count(),0);
+assert.equal(await page.locator('#mobile-menu').count(),0);
 await page.getByRole('button',{name:'Baby',exact:true}).click();
 assert.equal(await page.locator('.gallery-item:visible').count(),1);
 await page.locator('.gallery-item:visible').click();
@@ -63,6 +62,6 @@ assert(await page.locator('#privacy').isVisible());
 await page.keyboard.press('Escape');
 assert.equal(await page.locator('#privacy').isVisible(),false);
 assert.deepEqual(errors,[],'Browser errors');
-await fs.writeFile('qa/results.json',JSON.stringify({passed:true,viewports:[320,390,768,1440],checks:['No horizontal overflow','All photographs loaded','Mobile navigation','Gallery category filters and corporate empty state','Lightbox navigation, Escape and focus restoration','Testimonial controls','Phone validation','WhatsApp message preparation without sending','No personal details in analytics event','Privacy dialog'],browserErrors:errors},null,2));
+await fs.writeFile('qa/results.json',JSON.stringify({passed:true,viewports:[320,390,768,1440],checks:['No horizontal overflow','All photographs loaded','Single-page anchor navigation with no hamburger menu','Gallery category filters and corporate empty state','Lightbox navigation, Escape and focus restoration','Testimonial controls','Phone validation','WhatsApp message preparation without sending','No personal details in analytics event','Privacy dialog'],browserErrors:errors},null,2));
 await browser.close();
 console.log('PASS: responsive, image, gallery, navigation, testimonial, form and privacy checks.');

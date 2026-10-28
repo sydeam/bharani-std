@@ -20,6 +20,25 @@ npm run build
 
 The production site is generated in `dist/`. It can be served by any static host.
 
+## GitHub Pages
+
+Yes. This project is configured for GitHub Pages. The workflow at `.github/workflows/deploy-pages.yml` builds the static `dist/` folder and deploys it whenever you push to `main`.
+
+Create a GitHub repository, copy this folder into it, then push:
+
+```powershell
+git init
+git add .
+git commit -m "Build Bharani Studio landing page"
+git branch -M main
+git remote add origin https://github.com/YOUR-USERNAME/YOUR-REPOSITORY.git
+git push -u origin main
+```
+
+In the repository's Settings → Pages, set the source to **GitHub Actions**. The workflow automatically handles the correct path for both a project page (`username.github.io/repository-name`) and a user page (`username.github.io`).
+
+The site is already static, so it does not need a Node server on GitHub Pages. The WhatsApp form remains client-side and opens a prepared message for the visitor to review and send.
+
 ## Contents and interactions
 
 - Fixed trust strip and responsive navigation.
@@ -58,7 +77,7 @@ No Meta Pixel or Google Analytics account is configured. Add the appropriate acc
 
 ## Verification
 
-`node scripts/qa.mjs` runs a local Chrome check against localhost:4321, covering widths 320, 390, 768 and 1440, image loading, overflow, filters, lightbox, testimonials, mobile navigation, validation, WhatsApp message preparation and the privacy dialog. It intercepts the WhatsApp window and does not send a message. It uses the installed Windows Chrome path, which can be changed for another machine.
+`node scripts/qa.mjs` runs a local Chrome check against localhost:4321, covering widths 320, 390, 768 and 1440, image loading, overflow, single-page anchor navigation with no hamburger menu, filters, lightbox, testimonials, validation, WhatsApp message preparation and the privacy dialog. It intercepts the WhatsApp window and does not send a message. It uses the installed Windows Chrome path, which can be changed for another machine.
 
 Screenshots and results are generated in ignored `qa/`.
 

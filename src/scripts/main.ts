@@ -1,15 +1,6 @@
 
 const select = <T extends Element>(selector: string) => document.querySelector<T>(selector)!;
-const menuButton = select<HTMLButtonElement>('.menu-toggle');
-const menu = select<HTMLElement>('#mobile-menu');
-function closeMenu() { menu.hidden = true; menuButton.setAttribute('aria-expanded', 'false'); menuButton.setAttribute('aria-label', 'Open navigation'); }
-menuButton.addEventListener('click', () => {
- const open = menu.hidden; menu.hidden = !open; menuButton.setAttribute('aria-expanded', String(open)); menuButton.setAttribute('aria-label', open ? 'Close navigation' : 'Open navigation');
-});
-menu.querySelectorAll('a').forEach(link => link.addEventListener('click', closeMenu));
-document.addEventListener('keydown', event => { if (event.key === 'Escape' && !menu.hidden) {closeMenu(); menuButton.focus();} });
-document.addEventListener('click',event=>{if (!menu.hidden && event.target instanceof Node && !select('.site-header').contains(event.target)) closeMenu();});
-window.matchMedia('(min-width: 761px)').addEventListener('change', event => { if (event.matches) closeMenu(); });
+const assetBase = select<HTMLMetaElement>('meta[name="asset-base"]').content.endsWith('/') ? select<HTMLMetaElement>('meta[name="asset-base"]').content : select<HTMLMetaElement>('meta[name="asset-base"]').content + '/';
 
 const filters = [...document.querySelectorAll<HTMLButtonElement>('[data-filter]')];
 const photos = [...document.querySelectorAll<HTMLButtonElement>('.gallery-item')];
@@ -31,7 +22,7 @@ let visiblePhotos = photos;
 function displayPhoto(index: number) {
  currentPhoto = (index + visiblePhotos.length) % visiblePhotos.length;
  const photo = visiblePhotos[currentPhoto];
- lightboxImage.src = '/images/' + photo.dataset.image;
+ lightboxImage.src = assetBase + 'images/' + photo.dataset.image;
  lightboxImage.alt = photo.querySelector('img')?.alt || '';
  select('#lightbox-title').textContent = photo.dataset.caption || '';
  select('#lightbox-count').textContent = (currentPhoto+1)+' / '+visiblePhotos.length;

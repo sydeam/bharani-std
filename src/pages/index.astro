@@ -4,6 +4,7 @@ import Photo from '../components/Photo.astro';
 import Icon from '../components/Icon.astro';
 const whatsapp='https://wa.me/919908996227?text='+encodeURIComponent("Hi Bharani Studio! I'd love to enquire about a photoshoot.");
 const instagram='https://instagram.com/bharanistudionellore';
+const assetBase=import.meta.env.BASE_URL.endsWith('/') ? import.meta.env.BASE_URL : import.meta.env.BASE_URL+'/';
 const gallery=[
  {src:'wedding-2-crop.webp',alt:'A couple sharing a quiet moment, dressed in traditional wedding attire',category:'Weddings',title:'The beginning of forever',shape:'portrait'},
  {src:'baby-3.webp',alt:'A little girl in a tulle dress raising her arms on a green lawn',category:'Baby',title:'Little moments. Big feelings.',shape:'square'},
@@ -33,15 +34,16 @@ const services=[
   <title>Bharani Studio | Photography & Cinematography in Nellore</title>
   <meta name="description" content="You live the moment. We'll make sure it stays. Wedding, baby, maternity and corporate photography by Bharani Studio, Nellore. Since 1985. Let's plan your shoot."/>
   <link rel="canonical" href={Astro.site}/>
-  <link rel="icon" type="image/png" href="/favicon.png"/>
-  <link rel="preload" href="/fonts/cormorant-regular.ttf" as="font" type="font/ttf" crossorigin/>
-  <link rel="preload" href="/fonts/manrope-regular.ttf" as="font" type="font/ttf" crossorigin/>
+  <meta name="asset-base" content={assetBase}/>
+  <link rel="icon" type="image/png" href={assetBase+'favicon.png'}/>
+  <link rel="preload" href={assetBase+'fonts/cormorant-regular.ttf'} as="font" type="font/ttf" crossorigin/>
+  <link rel="preload" href={assetBase+'fonts/manrope-regular.ttf'} as="font" type="font/ttf" crossorigin/>
   <meta property="og:title" content="Bharani Studio — Your moments, beautifully kept."/>
   <meta property="og:description" content="Photography & cinematography, rooted in Nellore since 1985. Weddings, little milestones, and everything in between."/>
   <meta property="og:type" content="website"/><meta property="og:url" content={Astro.site}/>
-  <meta property="og:image" content={new URL('/images/wedding-2-crop.webp',Astro.site).href}/>
+  <meta property="og:image" content={new URL(assetBase+'images/wedding-2-crop.webp',Astro.site).href}/>
   <meta name="twitter:card" content="summary_large_image"/>
-  <script type="application/ld+json" set:html={JSON.stringify({'@context':'https://schema.org','@type':'ProfessionalService',name:'Bharani Studio',description:'Photography & Cinematography · Since 1985',foundingDate:'1985',telephone:'+919908996227',url:Astro.site?.href,image:new URL('/images/wedding-2-crop.webp',Astro.site).href,address:{'@type':'PostalAddress',addressLocality:'Nellore',addressRegion:'Andhra Pradesh',addressCountry:'IN'},areaServed:['Andhra Pradesh','Telangana','Chennai'],sameAs:[instagram]})}/>
+  <script type="application/ld+json" set:html={JSON.stringify({'@context':'https://schema.org','@type':'ProfessionalService',name:'Bharani Studio',description:'Photography & Cinematography · Since 1985',foundingDate:'1985',telephone:'+919908996227',url:Astro.site?.href,image:new URL(assetBase+'images/wedding-2-crop.webp',Astro.site).href,address:{'@type':'PostalAddress',addressLocality:'Nellore',addressRegion:'Andhra Pradesh',addressCountry:'IN'},areaServed:['Andhra Pradesh','Telangana','Chennai'],sameAs:[instagram]})}/>
  </head>
  <body>
   <a class="skip-link" href="#main">Skip to content</a>
@@ -49,13 +51,12 @@ const services=[
    <div class="trust-strip"><span class="tiny-spark" aria-hidden="true">✦</span> Trusted by <strong>500+ happy couples</strong><span class="tiny-spark" aria-hidden="true">✦</span></div>
    <div class="nav-wrap container">
     <a class="brand" href="#top" aria-label="Bharani Studio home">
-     <img src="/images/brand-mark.webp" width="39" height="48" alt=""/>
+     <img src={assetBase+'images/brand-mark.webp'} width="39" height="48" alt=""/>
      <span class="brand-type">Bharani Studio<span>PHOTOGRAPHY & CINEMATOGRAPHY</span></span>
     </a>
     <nav class="desktop-nav" aria-label="Main navigation"><a href="#work">Our work</a><a href="#about">About</a><a href="#contact">Contact</a></nav>
-    <div class="nav-actions"><a class="button button-small button-outline" href="#contact">Let's talk <Icon name="diagonal"/></a><button class="menu-toggle" aria-label="Open navigation" aria-expanded="false" aria-controls="mobile-menu"><Icon name="menu"/></button></div>
+    <div class="nav-actions"><a class="button button-small button-outline" href="#contact">Let's talk <Icon name="diagonal"/></a></div>
    </div>
-   <nav id="mobile-menu" class="mobile-menu" aria-label="Mobile navigation" hidden><a href="#work">Our work</a><a href="#services">What we do</a><a href="#about">Our story</a><a href="#contact">Get in touch</a></nav>
   </header>
   <main id="main">
    <section class="hero" id="top" aria-labelledby="hero-title">
@@ -113,7 +114,7 @@ const services=[
   </main>
   <footer class="site-footer"><div class="container"><div class="footer-top"><div><a class="footer-brand" href="#top">Bharani <em>Studio.</em></a><p>Photography & Cinematography · Since 1985<br/>Nellore, Andhra Pradesh</p></div><div class="footer-connect"><p>Every beautiful story starts with a hello.</p><a class="text-link light" href={instagram} target="_blank" rel="noopener noreferrer">Instagram <Icon name="diagonal"/></a><a class="text-link light" href={whatsapp} target="_blank" rel="noopener noreferrer" data-enquiry="footer-whatsapp">WhatsApp <Icon name="diagonal"/></a><a class="text-link light" href="#contact">Contact <Icon name="diagonal"/></a></div></div><div class="footer-bottom"><span>© {new Date().getFullYear()} Bharani Studio. All moments reserved.</span><a href="https://www.google.com/maps/search/?api=1&query=Bharani+Studio+Nellore" target="_blank" rel="noopener noreferrer"><Icon name="pin"/> Find us on Google Maps <Icon name="diagonal"/></a><button class="privacy-trigger" type="button">Privacy</button></div></div></footer>
   <div class="mobile-contact"><a href="tel:+919908996227" data-enquiry="mobile-phone"><Icon name="phone"/> Call us</a><a href={whatsapp} target="_blank" rel="noopener noreferrer" data-enquiry="mobile-whatsapp"><Icon name="chat"/> Let's talk on WhatsApp <Icon name="diagonal"/></a></div>
-  <dialog id="lightbox" class="lightbox" aria-label="Photograph viewer"><button class="lightbox-close round-button" aria-label="Close photograph"><Icon name="close"/></button><div class="lightbox-stage"><button id="lightbox-prev" class="round-button" aria-label="Previous photograph"><Icon name="arrow"/></button><img id="lightbox-image" src="/images/wedding-2-crop.webp" alt=""/><button id="lightbox-next" class="round-button" aria-label="Next photograph"><Icon name="arrow"/></button></div><div class="lightbox-caption"><span id="lightbox-title"></span><span id="lightbox-count"></span></div></dialog>
+  <dialog id="lightbox" class="lightbox" aria-label="Photograph viewer"><button class="lightbox-close round-button" aria-label="Close photograph"><Icon name="close"/></button><div class="lightbox-stage"><button id="lightbox-prev" class="round-button" aria-label="Previous photograph"><Icon name="arrow"/></button><img id="lightbox-image" src={assetBase+'images/wedding-2-crop.webp'} alt=""/><button id="lightbox-next" class="round-button" aria-label="Next photograph"><Icon name="arrow"/></button></div><div class="lightbox-caption"><span id="lightbox-title"></span><span id="lightbox-count"></span></div></dialog>
   <dialog id="privacy" class="privacy-dialog" aria-labelledby="privacy-title"><button class="privacy-close round-button" aria-label="Close privacy information"><Icon name="close"/></button><p class="eyebrow">YOUR INFORMATION</p><h2 id="privacy-title">A little privacy note.</h2><p>The enquiry form prepares a message on your device and opens WhatsApp. Your details are shared with Bharani Studio only when you send that message through WhatsApp.</p><p>This page does not submit your form to a database. Campaign parameters from a link may be kept in your browser for this session to understand where an enquiry started. No third-party advertising or analytics scripts are enabled on this version.</p><p>WhatsApp, Instagram and Google Maps have their own privacy policies. For questions about details you share with the studio, call <a href="tel:+919908996227">+91 99089 96227</a>.</p></dialog>
   <script src="../scripts/main.ts"></script>
  </body>
